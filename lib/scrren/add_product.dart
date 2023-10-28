@@ -1,7 +1,6 @@
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:product_app/constant.dart';
-import 'package:product_app/scrren/product_list.screen.dart';
 import 'package:product_app/utilits.dart';
 import 'package:product_app/widgets/Custom_appbar.dart';
 import 'package:product_app/widgets/custom_button.dart';
@@ -236,7 +235,6 @@ request.headers.addAll({
  request.fields['SalesRate'] = salesRate.text.trim();
     var res = await request.send();
     Utilities.showToastSuccess('create product Successfully');
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScrren(),));
   //  / return res.reasonPhrase;
   }
 }

@@ -45,15 +45,14 @@ var setProduct;
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, 70),
         child: CustomAppBar(text: 'Product List',)),
-      body: productData.isEmpty?Center(child:   CircularProgressIndicator(
-          backgroundColor: Colors.blue,
-        ),):
-      
-      SingleChildScrollView(
+      body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            
+            CustomPadding(
+              top: 0.04,
+              right: 0.02,left: 0.02,bottom: 0.02,
+              child: CustomTextFormField(controller: search, labelText: "search car", hintText: 'Search for car models,brands', icons: Icon(Icons.search))),
         
         CustomSizedBox(height: 0.05, width: 0),
            CustomPadding(
