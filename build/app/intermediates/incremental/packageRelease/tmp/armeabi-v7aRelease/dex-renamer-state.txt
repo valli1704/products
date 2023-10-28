@@ -1,4 +1,0 @@
-#Thu Oct 19 13:27:54 IST 2023
-base.0=/home/selva/products/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
