@@ -126,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   login() async {
+     _showLoaderDialog();
     var url = "https://spotit.cloud/interview/api/login";
     var body = {
       "email": "${email.text.toString()}",
@@ -138,11 +139,31 @@ class _LoginScreenState extends State<LoginScreen> {
       var json = jsonDecode(data);
       if (json['message'] == 'Login Failed') {
         Utilities.showToastError('${json['message']}');
+        Navigator.pop(context);
       } else {
         Utilities.showToastSuccess('${json['message']}');
         AppConstant.bearerToken = json['data']['token'];
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProductListScrren(),));
       }
     }
+  }
+   _showLoaderDialog() {
+    AlertDialog alert = AlertDialog(
+      backgroundColor: Colors.white,
+      content: Row(children: [
+        CircularProgressIndicator(
+          backgroundColor: Colors.black,
+        ),
+        Container(
+            margin: EdgeInsets.only(left: 7), child: Text("Please Wait...")),
+      ]),
+    );
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }
